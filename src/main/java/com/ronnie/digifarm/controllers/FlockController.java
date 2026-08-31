@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/flock")
+@CrossOrigin
 public class FlockController {
 
     FlockService flock_service;

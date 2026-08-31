@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/feeds")
+@CrossOrigin
 public class FeedLogsController {
 
     FeedLogsService feed_service;

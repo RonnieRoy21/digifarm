@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/health")
+@CrossOrigin
 public class HealthLogsController {
     HealthLogsService health_service;
 

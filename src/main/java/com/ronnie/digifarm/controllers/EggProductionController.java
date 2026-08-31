@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/eggs")
+@CrossOrigin
 public class EggProductionController {
 
     EggsProductionService egg_service;

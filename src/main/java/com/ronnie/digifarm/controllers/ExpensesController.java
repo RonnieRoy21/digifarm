@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/expenses")
+@CrossOrigin
 public class ExpensesController {
     ExpensesService exp_service;
     public ExpensesController(ExpensesService expensesService){
