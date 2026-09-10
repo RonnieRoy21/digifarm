@@ -1,12 +1,15 @@
 package com.ronnie.digifarm.models;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
@@ -20,6 +23,11 @@ public class HealthLogs {
 
     int flock_id;
     UUID recorded_by;
-    String event_type,medication_name,dosage,notes;
+
+    @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    HealthEventType event_type;
+
+    String medication_name, dosage, notes;
     String event_date;
 }
