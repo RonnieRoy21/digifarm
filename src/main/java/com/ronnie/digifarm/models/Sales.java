@@ -7,6 +7,7 @@ import org.hibernate.type.SqlTypes;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,11 @@ public class Sales {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int flock_id,quantity,unit_price,total_amount,amount_paid;
+    int flock_id,quantity,unit_price,amount_paid;
+
+    @Column(name = "total_amount", insertable = false, updatable = false)
+int total_amount;
+
     String  buyer_name,buyer_contact;
     UUID recorded_by;
     String sale_date;
