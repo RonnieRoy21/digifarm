@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -22,5 +21,5 @@ public class HealthLogs {
     int flock_id;
     UUID recorded_by;
     String event_type,medication_name,dosage,notes;
-    LocalDate event_date;
+    String event_date;
 }

@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -22,7 +21,7 @@ public class EggsProductionLogs {
 
 
     int flock_id,eggs_collected,eggs_broken;
-    LocalDate log_date;
+    String log_date;
     String notes;
     UUID recorded_by;
 

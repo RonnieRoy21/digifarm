@@ -6,8 +6,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -23,5 +21,5 @@ public class Users {
     String email;
 
     String role;
-    LocalDateTime created_at;
+    String created_at;
 }

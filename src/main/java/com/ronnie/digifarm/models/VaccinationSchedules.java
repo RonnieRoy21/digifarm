@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 
 
 @Entity
@@ -16,7 +15,7 @@ import java.time.LocalDate;
 @Getter
 
 public class VaccinationSchedules {
-    String vaccine_name,status;
+    String vaccine_name, status;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,6 @@ public class VaccinationSchedules {
 
     int completed_log_id;
 
-    LocalDate scheduled_date;
+    String scheduled_date;
     int flock_id;
 }

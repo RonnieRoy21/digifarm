@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +18,7 @@ public class MortalityLogs {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
         int flock_id,deaths_count;
-        LocalDate log_date;
+        String log_date;
         String cause,notes;
     UUID recorded_by;
 }

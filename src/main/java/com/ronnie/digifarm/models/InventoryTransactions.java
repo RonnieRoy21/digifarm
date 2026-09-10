@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -18,7 +17,7 @@ public class InventoryTransactions {
     int id;
 
     int item_id,quantity;
-    LocalDate transaction_date;
+    String transaction_date;
     String reference_note,transaction_type;
 
 }

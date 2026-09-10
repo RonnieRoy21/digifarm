@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -20,6 +19,6 @@ public class InventoryItems {
     int id;
     int quantity_on_hand,reorder_threshold;
     String item_name,category,unit;
-    LocalDateTime last_updated;
+    String last_updated;
 
 }

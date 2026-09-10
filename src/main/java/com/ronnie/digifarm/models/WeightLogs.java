@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -21,5 +20,5 @@ public class WeightLogs {
 
     int flock_id,sample_size,total_weight_kg ;
     float avg_weight_kg;
-    LocalDate log_date; UUID recorded_by;
+    String log_date; UUID recorded_by;
 }
