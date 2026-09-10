@@ -19,6 +19,10 @@ public class WeightLogs {
     int id ;
 
     int flock_id,sample_size,total_weight_kg ;
+
+    @Column(name="avg_weight_kg",insertable=false,updatable=false)
     float avg_weight_kg;
-    String log_date; UUID recorded_by;
+
+    String log_date;
+    UUID recorded_by;
 }
