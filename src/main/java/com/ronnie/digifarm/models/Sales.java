@@ -1,6 +1,9 @@
 package com.ronnie.digifarm.models;
 
-
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +21,11 @@ public class Sales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     int flock_id,quantity,unit_price,total_amount,amount_paid;
-    String product_type,buyer_name,buyer_contact,payment_status;
+    String product_type,buyer_name,buyer_contact;
     UUID recorded_by;
     String sale_date;
 
+    @Enumerated(EnumType.STRING)
+@JdbcTypeCode(SqlTypes.NAMED_ENUM)
+PaymentStatus payment_status;
 }
