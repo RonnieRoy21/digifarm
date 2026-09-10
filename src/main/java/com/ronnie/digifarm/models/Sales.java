@@ -21,11 +21,16 @@ public class Sales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     int flock_id,quantity,unit_price,total_amount,amount_paid;
-    String product_type,buyer_name,buyer_contact;
+    String  buyer_name,buyer_contact;
     UUID recorded_by;
     String sale_date;
 
     @Enumerated(EnumType.STRING)
 @JdbcTypeCode(SqlTypes.NAMED_ENUM)
 PaymentStatus payment_status;
+
+@Enumerated(EnumType.STRING)
+@JdbcTypeCode(SqlTypes.NAMED_ENUM)
+SaleProductType product_type;
+
 }
