@@ -43,9 +43,9 @@ public class InventoryTransactionController {
     }
 
 
-    @DeleteMapping("/deleteLog")
-    public ResponseEntity<?> deleteTransaction(@Validated @PathVariable InventoryTransactions log){
-        return trans_service.processRequest("delete",log,null);
+    @DeleteMapping("/deleteLogById/{id}")
+    public ResponseEntity<?> deleteTransaction(@Validated @PathVariable int id){
+        return trans_service.processRequest("delete",null,null,id);
     }
 
 }

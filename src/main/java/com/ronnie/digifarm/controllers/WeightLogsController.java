@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/weight")
 @CrossOrigin
@@ -29,8 +31,15 @@ public class WeightLogsController {
 
     @PostMapping("/addLog")
     public ResponseEntity<?> addWeightLog(@Validated @RequestBody WeightLogs log){
-        return weight_service.addWeightLog(log);
+        return weight_service.addWeightLog(log,null);
     }
+
+    @PostMapping("/addLogs")
+    public ResponseEntity<?> addWeightLogs(@Validated @RequestBody List<WeightLogs> logs){
+        return weight_service.addWeightLog(null,logs);
+    }
+
+
 
     @DeleteMapping("/deleteLogById/{id}")
     public ResponseEntity<?> deleteByWeightLogId(@Validated @PathVariable int id){

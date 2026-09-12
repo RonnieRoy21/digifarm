@@ -65,7 +65,7 @@ public class FeedLogsService {
     public ResponseEntity<?> editFeedLog(FeedLogs log){
         try{
             feed_repo.save(log);
-            return ResponseEntity.ok(new ResponseModel("Feed Log Added",null,null,null));
+            return ResponseEntity.ok(new ResponseModel("Feed Log Edited",null,null,null));
         }
         catch(DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body(new ResponseModel("Constraint Error ",null,null,e.getMessage()));
@@ -82,10 +82,10 @@ public class FeedLogsService {
 
 
     //delete a log
-    public ResponseEntity<?> deleteFeedLog(FeedLogs log){
+    public ResponseEntity<?> deleteFeedLog(int logId){
         try{
-            feed_repo.delete(log);
-            return ResponseEntity.ok(new ResponseModel("Feed Log Added",null,null,null));
+            feed_repo.deleteById(logId);
+            return ResponseEntity.ok(new ResponseModel("Feed Log Deleted",null,null,null));
         }
         catch(DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body(new ResponseModel("Constraint Error ",null,null,e.getMessage()));

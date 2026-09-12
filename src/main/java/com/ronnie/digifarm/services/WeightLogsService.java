@@ -20,13 +20,17 @@ public class WeightLogsService {
         this.weight_repo = weightLogsRepository;
     }
 
-    public ResponseEntity<?> addWeightLog(WeightLogs log){
+    public ResponseEntity<?> addWeightLog(WeightLogs log,List<WeightLogs>logs){
         if (log == null){
             return ResponseEntity.ofNullable(new ResponseModel("Error Occurred", null, null, "Empty Request Body"));
         }
         try{
+            if (!logs.isEmpty()){
+                weight_repo.saveAll(logs);
+            }else{
             weight_repo.save(log);
-            return ResponseEntity.ok(new ResponseModel("Weight Log Added", null, null, null));
+            }
+            return ResponseEntity.ok(new ResponseModel("Weight Log(s) Added", null, null, null));
         }catch(DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body(new ResponseModel("Constraint Error ", null, null, e.getMessage()));
         }catch(DataAccessException e){

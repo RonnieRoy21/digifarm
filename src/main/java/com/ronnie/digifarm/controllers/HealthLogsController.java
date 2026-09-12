@@ -20,29 +20,29 @@ public class HealthLogsController {
 
     @GetMapping("/getAllLogs")
     public ResponseEntity<?> getAllHealthLogs(){
-        return health_service.processRequest("get",null,null);
+        return health_service.processRequest("get",null,null,null);
     }
 
 
     @PostMapping("/addLog")
     public ResponseEntity<?> addHealthLog(@Validated @RequestBody HealthLogs log){
-        return health_service.processRequest("insert single",log,null);
+        return health_service.processRequest("insert single",log,null,null);
     }
 
     @PostMapping("/addLogs")
     public ResponseEntity<?> addHealthLogs(@Validated @RequestBody List<HealthLogs> logs){
-        return health_service.processRequest("insert many",null,logs);
+        return health_service.processRequest("insert many",null,logs,null);
     }
 
     @PutMapping("/updateLog")
     public ResponseEntity<?> updateHealthLog(@Validated @RequestBody HealthLogs log){
-        return health_service.processRequest("edit",log,null);
+        return health_service.processRequest("edit",log,null,null);
     }
 
 
-    @DeleteMapping("/deleteLog")
-    public ResponseEntity<?> deleteByFlockId(@Validated @PathVariable HealthLogs log){
-        return health_service.processRequest("delete",log,null);
+    @DeleteMapping("/deleteLogById/{id}")
+    public ResponseEntity<?> deleteByFlockId(@Validated @PathVariable int id){
+        return health_service.processRequest("delete",null,null,id);
     }
 
 }

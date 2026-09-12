@@ -20,7 +20,7 @@ public class InventoryTransactionService {
         this.inv_transaction_repo=inventoryTransactionsRepository;
     }
 
-    public ResponseEntity<?> processRequest(String action , InventoryTransactions single, List<InventoryTransactions> body){
+    public ResponseEntity<?> processRequest(String action , InventoryTransactions single, List<InventoryTransactions> body,Integer deleteId){
         try{
             if (action.trim().isEmpty()){
                 return ResponseEntity.badRequest().body(new ResponseModel("Invalid Action",null,null,null));
@@ -48,7 +48,7 @@ public class InventoryTransactionService {
                     yield ResponseEntity.ok(new ResponseModel("Updated Item ", null, null, null));
                 }
                 case "delete" -> {
-                    inv_transaction_repo.delete(single);
+                    inv_transaction_repo.deleteById(deleteId);
                     yield ResponseEntity.ok(new ResponseModel("Deleted Item ", null, null, null));
                 }
                 case "get" -> {

@@ -20,7 +20,7 @@ public class SalesService {
             this.sales_repo=salesRepository;
         }
 
-        public ResponseEntity<?> processRequest(String action , Sales single, List<Sales> body){
+        public ResponseEntity<?> processRequest(String action , Sales single, List<Sales> body,Integer deleteId){
             try{
                 if (action.trim().isEmpty()){
                     return ResponseEntity.badRequest().body(new ResponseModel("Invalid Action",null,null,null));
@@ -48,7 +48,7 @@ public class SalesService {
                         yield ResponseEntity.ok(new ResponseModel("Updated Sale ", null, null, null));
                     }
                     case "delete" -> {
-                        sales_repo.delete(single);
+                        sales_repo.deleteById(deleteId);
                         yield ResponseEntity.ok(new ResponseModel("Deleted Sale ", null, null, null));
                     }
                     case "get" -> {

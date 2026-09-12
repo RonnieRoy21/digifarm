@@ -40,9 +40,9 @@ public class FeedLogsController {
         return feed_service.editFeedLog(log);
     }
 
-    @DeleteMapping("/deleteLog")
-    public ResponseEntity<?> deleteLog(@Validated @RequestBody FeedLogs log){
-        return feed_service.deleteFeedLog(log);
+    @DeleteMapping("/deleteLogById/{id}")
+    public ResponseEntity<?> deleteLog(@Validated @PathVariable int id){
+        return feed_service.deleteFeedLog(id);
     }
 
 }

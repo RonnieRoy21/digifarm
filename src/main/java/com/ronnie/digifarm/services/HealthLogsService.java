@@ -19,7 +19,7 @@ public class HealthLogsService {
         this .health_repo=healthLogsRepository;
     }
 
-    public ResponseEntity<?> processRequest(String action, HealthLogs single, List<HealthLogs> body){
+    public ResponseEntity<?> processRequest(String action, HealthLogs single, List<HealthLogs> body,Integer deleteId){
         try{
 
             return switch (action.toLowerCase()) {
@@ -45,7 +45,7 @@ public class HealthLogsService {
                     yield ResponseEntity.ok(new ResponseModel("Updated Log ", null, null, null));
                 }
                 case "delete" -> {
-                    health_repo.delete(single);
+                    health_repo.deleteById(deleteId);
                     yield ResponseEntity.ok(new ResponseModel("Deleted Log ", null, null, null));
                 }
                 case "get" -> {

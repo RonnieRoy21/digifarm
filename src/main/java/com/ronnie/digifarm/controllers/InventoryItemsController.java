@@ -22,29 +22,29 @@ public InventoryItemsController(InventoryItemsService inventoryItemsService){
 
     @GetMapping("/getAllLogs")
     public ResponseEntity<?> getAllHealthLogs(){
-        return inv_item_service.processRequest("get",null,null);
+        return inv_item_service.processRequest("get",null,null,null);
     }
 
 
     @PostMapping("/addLog")
     public ResponseEntity<?> addHealthLog(@Validated @RequestBody InventoryItems log){
-        return inv_item_service.processRequest("insert single",log,null);
+        return inv_item_service.processRequest("insert single",log,null,null);
     }
 
     @PostMapping("/addLogs")
     public ResponseEntity<?> addHealthLogs(@Validated @RequestBody List<InventoryItems> logs){
-        return inv_item_service.processRequest("insert many",null,logs);
+        return inv_item_service.processRequest("insert many",null,logs,null);
     }
 
     @PutMapping("/updateLog")
     public ResponseEntity<?> updateHealthLog(@Validated @RequestBody InventoryItems log){
-        return inv_item_service.processRequest("edit",log,null);
+        return inv_item_service.processRequest("edit",log,null,null);
     }
 
 
-    @DeleteMapping("/deleteLog")
-    public ResponseEntity<?> deleteByFlockId(@Validated @PathVariable InventoryItems log){
-        return inv_item_service.processRequest("delete",log,null);
+    @DeleteMapping("/deleteLogById/{id}")
+    public ResponseEntity<?> deleteByFlockId(@Validated @PathVariable int id){
+        return inv_item_service.processRequest("delete",null,null,id);
     }
 
 
