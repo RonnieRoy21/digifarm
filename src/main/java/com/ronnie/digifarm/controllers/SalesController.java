@@ -5,6 +5,7 @@ import com.ronnie.digifarm.models.Sales;
 import com.ronnie.digifarm.services.SalesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 

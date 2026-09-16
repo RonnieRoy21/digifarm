@@ -4,6 +4,8 @@ import com.ronnie.digifarm.models.MortalityLogs;
 import com.ronnie.digifarm.services.MortalityLogsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
