@@ -20,24 +20,24 @@ public class SalesController {
 
 
     @PostMapping("/addLog")
-    public ResponseEntity<?> addSalesLog(Sales sale){
+    public ResponseEntity<?> addSalesLog(@Validated @RequestBody Sales sale){
         return sale_Service.processRequest("insert single",sale,null,null);
 
     }
 
     @PostMapping("/addLogs")
-    public ResponseEntity<?> addSalesLogs(List<Sales> sales){
+    public ResponseEntity<?> addSalesLogs(@Validated @RequestBody List<Sales> sales){
         return sale_Service.processRequest("insert many",null,sales,null);
     }
 
 
     @PutMapping("/updateLog")
-    public ResponseEntity<?> updateSalesLog(Sales sale){
+    public ResponseEntity<?> updateSalesLog(@Validated @RequestBody Sales sale){
         return sale_Service.processRequest("edit",sale,null,null);
     }
 
     @DeleteMapping("/deleteLogById{id}")
-    public ResponseEntity<?> deleteSalesLog(int id){
+    public ResponseEntity<?> deleteSalesLog(@Validated @PathVariable id){
         return sale_Service.processRequest("delete",null,null,id);
     }
 

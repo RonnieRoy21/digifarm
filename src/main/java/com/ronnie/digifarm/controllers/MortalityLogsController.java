@@ -24,12 +24,12 @@ public class MortalityLogsController {
 
     }
     @PostMapping("/addLog")
-    public ResponseEntity<?> addMortalityLog(MortalityLogs log){
+    public ResponseEntity<?> addMortalityLog(@Validated @RequestBody MortalityLogs log){
         return mortality_service.processRequest("insert single",log,null);
 
     }
     @PostMapping("/addLogs")
-    public ResponseEntity<?> addMortalityLogs(List<MortalityLogs> logs){
+    public ResponseEntity<?> addMortalityLogs(@Validated @RequestBody List<MortalityLogs> logs){
         return mortality_service.processRequest("insert many",null,logs);
 
     }
