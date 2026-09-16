@@ -23,23 +23,23 @@ public class InventoryTransactionController {
 
     @GetMapping("/getAllLogs")
     public ResponseEntity<?> getAllTransactionLogs(){
-        return trans_service.processRequest("get",null,null);
+        return trans_service.processRequest("get",null,null,null);
     }
 
 
     @PostMapping("/addLog")
     public ResponseEntity<?> addTransactionLog(@Validated @RequestBody InventoryTransactions log){
-        return trans_service.processRequest("insert single",log,null);
+        return trans_service.processRequest("insert single",log,null,null);
     }
 
     @PostMapping("/addLogs")
     public ResponseEntity<?> addTransactionLogs(@Validated @RequestBody List<InventoryTransactions> logs){
-        return trans_service.processRequest("insert many",null,logs);
+        return trans_service.processRequest("insert many",null,logs,null);
     }
 
     @PutMapping("/updateLog")
     public ResponseEntity<?> updateTransactionLog(@Validated @RequestBody InventoryTransactions log){
-        return trans_service.processRequest("edit",log,null);
+        return trans_service.processRequest("edit",log,null,null);
     }
 
 
