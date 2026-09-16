@@ -37,7 +37,7 @@ public class SalesController {
     }
 
     @DeleteMapping("/deleteLogById{id}")
-    public ResponseEntity<?> deleteSalesLog(@Validated @PathVariable id){
+    public ResponseEntity<?> deleteSalesLog(@Validated @PathVariable int id){
         return sale_Service.processRequest("delete",null,null,id);
     }
 
